@@ -39,7 +39,6 @@
                                        Grupa dziekańska: {{$group->gr_dziekanska}}</option>
 @endforeach
 </select>
-    <!--<input type="text" name="id_group" class="form-control" placeholder="ID Grupy" /> -->
    </div>
    <div class="form-group">
     <input type="submit" class="btn btn-primary" />
