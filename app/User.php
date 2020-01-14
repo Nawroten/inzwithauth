@@ -39,6 +39,6 @@ class User extends Authenticatable
     ];
     
     public function Group(){
-        Return $thi->hasMany(Group::class);
+        Return $this->hasMany(Group::class);
     }
 }
