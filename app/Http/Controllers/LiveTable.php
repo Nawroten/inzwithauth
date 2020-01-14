@@ -20,7 +20,7 @@ class LiveTable extends Controller
     {
         if($request->ajax())
         {
-            $data = DB::table('groups')->join('students', 'students.id_group', '=' , 'groups.id_groups')->join('lesson', 'lesson.id_lesson', '=' , 'students.id_Student')->where('id_groups','=',$id)->get();
+            $data = DB::table('groups')->join('students', 'students.id_group', '=' , 'groups.id_groups')->join('lesson', 'lesson.id_studenta', '=' , 'students.id_Student')->where('id_groups','=',$id)->get();
             return json_encode($data);
         }
     }
@@ -42,7 +42,7 @@ class LiveTable extends Controller
                 'ocena3'        =>  $request->ocena3,
             );
             $id_Student = DB::table('groups')->join('students', 'students.id_group', '=' , 'groups.id_groups')
-                ->join('lesson', 'lesson.id_lesson', '=' , 'students.id_Student')->insert($data);
+                ->join('lesson', 'lesson.id_studenta', '=' , 'students.id_Student')->insert($data);
             if($id_Student > 0)
             {
                 echo '<div class="alert alert-success">Data Inserted</div>';
@@ -58,7 +58,7 @@ class LiveTable extends Controller
                 $request->column_name       =>  $request->column_value
             );
             DB::table('groups')->join('students', 'students.id_group', '=' , 'groups.id_groups')
-                ->join('lesson', 'lesson.id_lesson', '=' , 'students.id_Student')
+                ->join('lesson', 'lesson.id_studenta', '=' , 'students.id_Student')
                 ->where('id_Student', $request->id_Student)
                 ->update($data);
             echo '<div class="alert alert-success">Data Updated</div>';
@@ -70,7 +70,7 @@ class LiveTable extends Controller
         if($request->ajax())
         {
             DB::table('groups')->join('students', 'students.id_group', '=' , 'groups.id_groups')
-                ->join('lesson', 'lesson.id_lesson', '=' , 'students.id_Student')
+                ->join('lesson', 'lesson.id_studenta', '=' , 'students.id_Student')
                 ->where('id_Student', $request->id_Student)
                 ->delete();
             echo '<div class="alert alert-success">Data Deleted</div>';
