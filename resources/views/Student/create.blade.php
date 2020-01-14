@@ -35,7 +35,8 @@
    <div class="form-group">
 <select name="id_group" class="browser-default custom-select custom-select-lg mb-3">
 @foreach($groups as $group )
-<option value="{{$group->id_groups}}">{{$group->kierunek}}, Semestr: {{$group->semestr}}, Grupa dziekańska: {{$group->gr_dziekanska}}</option>
+<option value="{{$group->id_groups}}">{{$group->kierunek}}, Semestr: {{$group->semestr}}, 
+                                       Grupa dziekańska: {{$group->gr_dziekanska}}</option>
 @endforeach
 </select>
     <!--<input type="text" name="id_group" class="form-control" placeholder="ID Grupy" /> -->
