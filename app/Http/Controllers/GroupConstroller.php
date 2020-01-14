@@ -16,7 +16,7 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $groups = Group::all()->toArray();
+        $groups = Group::where('id_user',$request->auth->User->'id')->with(['groups.id_user']);
         return view('Group.index', compact('groups'));
     }
     
